@@ -6,7 +6,6 @@ from sklearn.ensemble import GradientBoostingClassifier
 
 class DiabetesModel:
     def __init__(self):
-        # Load Pima Indians dataset
         df = pd.read_csv("diabetes.csv")  
         self.feature_names = [
             "Pregnancies", "Glucose", "BloodPressure", "SkinThickness",
@@ -31,3 +30,4 @@ class DiabetesModel:
         probs = self.model.predict_proba(X)[:, 1]
         preds = (probs >= 0.5).astype(int)
         return preds, probs
+
