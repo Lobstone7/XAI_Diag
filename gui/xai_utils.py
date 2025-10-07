@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 from sklearn.inspection import permutation_importance
 
-PERM_AVAILABLE = True  # We have permutation importance available
+PERM_AVAILABLE = True  
 
 def explain_with_permutation(model):
     """
@@ -11,11 +11,9 @@ def explain_with_permutation(model):
     Returns a DataFrame with features, mean importance, and standard deviation.
     """
     try:
-        # Use the training data if available, else raise error
         if not hasattr(model, "model") or not hasattr(model.model, "feature_names_in_"):
             raise ValueError("Model is not trained properly or missing feature names.")
         
-        # Using model's training data (X_train). Here, we regenerate from dataset
         import pandas as pd
         df = pd.read_csv("diabetes.csv")
         X = df[model.feature_names]
@@ -38,3 +36,4 @@ def explain_with_permutation(model):
 PDP_AVAILABLE = False
 def explain_with_pdp(model):
     return "Partial Dependence Plots not implemented."
+
