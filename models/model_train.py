@@ -5,7 +5,6 @@ from sklearn.ensemble import GradientBoostingClassifier
 import joblib
 
 def train_and_save_model():
-    # Load PIMA dataset
     df = pd.read_csv("diabetes.csv")
     df.columns = ['Pregnancies', 'Glucose', 'BloodPressure', 'SkinThickness', 
                   'Insulin', 'BMI', 'DiabetesPedigreeFunction', 'Age', 'Outcome']
@@ -34,3 +33,4 @@ def train_and_save_model():
 
 if __name__ == "__main__":
     train_and_save_model()
+
